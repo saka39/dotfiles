@@ -401,18 +401,6 @@ let g:ref_use_vimproc = 0
 nmap ,rr :<C-u>Ref refe<Space>
 
 "------------------------------------
-" jslint
-"------------------------------------
-" Javascript保存時にJSlint実行
-autocmd FileType javascript call s:javascript_filetype_settings()
-
-function! s:javascript_filetype_settings()
-  autocmd BufLeave     <buffer> call jslint#clear()
-  autocmd BufWritePost <buffer> call jslint#check()
-  autocmd CursorMoved  <buffer> call jslint#message()
-endfunction
-
-"------------------------------------
 " zencoding
 "------------------------------------
 let g:user_zen_settings = { 'indentation': '  ',  'lang': 'ja' }

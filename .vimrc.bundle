@@ -161,8 +161,6 @@ call vundle#rc()
   " NERD_tree, taglist, srcexpl の統合
   " Bundle 'trinity.vim'
 
-  " jslint : JavaScript構文チェック
-  Bundle 'basyura/jslint.vim'
 " }}}
 "
 " Syntax {{{
