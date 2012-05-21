@@ -54,8 +54,6 @@ filetype plugin on
 "--------------------------------------------------------------------------------
 " 色 Color {{{
 "--------------------------------------------------------------------------------
-" colorscheme mrkn256
-" colorscheme yuroyoro256
 " set background=dark
 set background=light
 colorscheme solarized
@@ -497,7 +495,11 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 " JSONをformat
 map <Leader>j :%!python -m json.tool<CR>
 
-" q: Quickfix  "{{{
+" }}}
+
+"--------------------------------------------------------------------------------
+" q: Quickfix {{{
+"--------------------------------------------------------------------------------
 " The prefix key.
 nnoremap [Quickfix]   <Nop>
 nmap    q  [Quickfix]
@@ -505,7 +507,7 @@ nmap    q  [Quickfix]
 " Disable Ex-mode.
 nnoremap Q  q
 
-" For quickfix list  "{{{
+" For quickfix list
 nnoremap <silent> [Quickfix]n  :<C-u>cnext<CR>
 nnoremap <silent> [Quickfix]p  :<C-u>cprevious<CR>
 nnoremap <silent> [Quickfix]r  :<C-u>crewind<CR>
@@ -534,9 +536,6 @@ function! s:toggle_quickfix_window()
     setlocal whichwrap=b,s
   endif
 endfunction
-"}}}
-
-
 
 " }}}
 
