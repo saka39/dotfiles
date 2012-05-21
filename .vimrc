@@ -497,21 +497,46 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 " JSONをformat
 map <Leader>j :%!python -m json.tool<CR>
 
-" quickfixウィンドウではq/ESCで閉じる
-autocmd FileType qf nnoremap <buffer> q :ccl<CR>
-autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
+" q: Quickfix  "{{{
+" The prefix key.
+nnoremap [Quickfix]   <Nop>
+nmap    q  [Quickfix]
 
-" cwでquickfixウィンドウの表示をtoggleするようにした
-function! s:toggle_qf_window()
-  for bufnr in range(1,  winnr('$'))
-    if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
-      execute 'ccl'
-      return
-    endif
-  endfor
-  execute 'botright cw'
+" Disable Ex-mode.
+nnoremap Q  q
+
+" For quickfix list  "{{{
+nnoremap <silent> [Quickfix]n  :<C-u>cnext<CR>
+nnoremap <silent> [Quickfix]p  :<C-u>cprevious<CR>
+nnoremap <silent> [Quickfix]r  :<C-u>crewind<CR>
+nnoremap <silent> [Quickfix]N  :<C-u>clast<CR>
+nnoremap <silent> [Quickfix]P  :<C-u>cfirst<CR>
+nnoremap <silent> [Quickfix]fn :<C-u>cnfile<CR>
+nnoremap <silent> [Quickfix]fp :<C-u>cpfile<CR>
+nnoremap <silent> [Quickfix]l  :<C-u>clist<CR>
+nnoremap <silent> [Quickfix]q  :<C-u>cc<CR>
+nnoremap <silent> [Quickfix]o  :<C-u>copen<CR>
+nnoremap <silent> [Quickfix]c  :<C-u>cclose<CR>
+nnoremap <silent> [Quickfix]en :<C-u>cnewer<CR>
+nnoremap <silent> [Quickfix]ep :<C-u>colder<CR>
+nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
+nnoremap [Quickfix]M  q:make<Space>
+nnoremap [Quickfix]g  q:grep<Space>
+
+" Toggle quickfix window.
+nnoremap <silent> [Quickfix]<Space> :<C-u>call <SID>toggle_quickfix_window()<CR>
+function! s:toggle_quickfix_window()
+  let _ = winnr('$')
+  cclose
+  if _ == winnr('$')
+    copen
+    setlocal nowrap
+    setlocal whichwrap=b,s
+  endif
 endfunction
-nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
+"}}}
+
+
 
 " }}}
 
