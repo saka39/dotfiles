@@ -42,7 +42,7 @@ let g:treeExplVertical=1
 " コメントの間にスペースを空ける
 let NERDSpaceDelims = 1
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
-map <Leader>x, c<space>
+map <Leader>x ,c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
@@ -240,7 +240,6 @@ map ge  <Plug>(smartword-ge)
 "------------------------------------
 " camelcasemotion.vim
 "------------------------------------
-
 " <Shift-wbe>でCameCaseやsnake_case単位での単語移動
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
