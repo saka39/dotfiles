@@ -504,7 +504,6 @@ bindkey " "   magic-abbrev-expand-and-insert
 bindkey "."   magic-abbrev-expand-and-insert
 bindkey "^x " no-magic-abbrev-expand
 
-
 function rmf(){
    for file in $*
    do
@@ -540,6 +539,9 @@ function __rm_single_file(){
                echo "No such file or directory: $file"
        fi
 }
+
+# 危険なのでrmは使わない
+alias rm="rmf"
 
 ## alias設定
 #
