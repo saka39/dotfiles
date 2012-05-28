@@ -221,6 +221,9 @@ NeoBundle 'Shougo/neobundle.vim'
 
 " Utility {{{
 
+  " vimfiler : vimのfiler
+  NeoBundle 'Shougo/vimfiler'
+
   " vimshell : vimのshell
   NeoBundle 'Shougo/vimshell.git'
 
