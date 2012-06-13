@@ -31,12 +31,6 @@ command! Mt :TMiniBufExplorer
 let g:Align_xstrlen = 3
 
 "------------------------------------
-" VTreeExplorer
-"------------------------------------
-" 縦に表示する
-let g:treeExplVertical=1
-
-"------------------------------------
 " NERD_commenter.vim
 "------------------------------------
 " コメントの間にスペースを空ける
@@ -105,7 +99,6 @@ let g:surround_{char2nr("-")} = ":\r"
 " " if文直後の(は自動で間に空白を入れる
 " inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
 
-
 "------------------------------------
 " Fugitive.vim
 "------------------------------------
@@ -116,13 +109,6 @@ nnoremap <Space>ga :<C-u>Gwrite<Enter>
 nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
-
-
-"------------------------------------
-" BufExplorer
-"------------------------------------
-"<Leader>l<Space>でBufferList
-nnoremap <Leader>l<Space> :BufExplorer<CR>
 
 "------------------------------------
 " VTreeExplorer
@@ -184,9 +170,10 @@ let Tlist_Enable_Fold_Column = 1          " 折りたたみ
 " let Tlist_Auto_Open = 1                   " 自動表示
 let Tlist_Auto_Update = 1
 let Tlist_WinWidth = 30
-"map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
-nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
-nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
+map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
+" trinity.vim
+" nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
+" nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 
 "------------------------------------
 " Srcexp
@@ -235,7 +222,6 @@ map W  <Plug>(smartword-w)
 map B  <Plug>(smartword-b)
 map E  <Plug>(smartword-e)
 map ge  <Plug>(smartword-ge)
-
 
 "------------------------------------
 " camelcasemotion.vim
@@ -303,7 +289,6 @@ autocmd FileType vimshell
 \| call vimshell#hook#set('preexec', ['g:my_preexec'])
 
 command! Vs :VimShell
-
 
 "------------------------------------
 " unite.vim
