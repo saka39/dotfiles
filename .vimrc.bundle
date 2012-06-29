@@ -92,6 +92,9 @@ NeoBundle 'Shougo/neobundle.vim'
   " <C-a>でtrue/false切替。他色々
   NeoBundle 'taku-o/vim-toggle'
 
+  " zen-coding
+  NeoBundle 'mattn/zencoding-vim'
+
 " }}}
 
 " Completion {{{
@@ -252,7 +255,7 @@ NeoBundle 'Shougo/neobundle.vim'
   NeoBundle 'thinca/vim-openbuf'
 
   " vimdoc 日本語
-  NeoBundle 'yuroyoro/vimdoc_ja'
+  NeoBundle 'vim-jp/vimdoc-ja'
 
   " vim上のtwitter client
   NeoBundle 'TwitVim'
