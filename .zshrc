@@ -133,7 +133,7 @@ setopt pushd_ignore_dups
 setopt correct
 
 # コマンドライン全てのスペルチェックをする
-setopt correct_all
+# setopt correct_all
 
 # 上書きリダイレクトの禁止
 setopt no_clobber
