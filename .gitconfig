@@ -1,6 +1,5 @@
-[user]
-  name = saka39
-  email = saka39@gmail.com
+[include]
+  path = .gitconfig.local
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
   status = auto
