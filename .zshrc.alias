@@ -44,14 +44,13 @@ alias pon='predict-on'
 alias poff='predict-off'
 alias p='ping -c 4'
 
-#alias ls='ls -al'
-alias cp='nocorrect cp -irp'
-alias refe='nocorrect refe'
-
 # git
 alias g='git'
 alias gi='git'
 
+# nocrrect
+alias cp='nocorrect cp -irp'
+alias refe='nocorrect refe'
 alias java='nocorrect java'
 alias cp='nocorrect cp -irp'
 alias erl='nocorrect erl'
