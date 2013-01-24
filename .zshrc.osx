@@ -1,6 +1,3 @@
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=/opt/local/bin:/opt/local/sbin/:~/bin:$PATH
-
 # osx alias
 alias pbc='pbcopy'
 
@@ -8,10 +5,11 @@ alias pbc='pbcopy'
 # export CLICOLOR=1
 # export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# vim
+# editor
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias e='subl'
 
 # man path
 MANPATH=/usr/local/man:$MANPATH
@@ -20,7 +18,20 @@ INFOPATH=/usr/local/info:$INFOPATH
 export INFOPATH
 
 # tmux
-alias tmux='tmuxx'
-alias tm='tmuxx'
+# alias tmux='tmuxx'
+alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
+alias tmk='tmux kill-session'
+alias tmc='tmux save-buffer - | ~/bin/reattach-to-user-namespace pbcopy'
+alias tmv='~/bin/reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer'
+
+# autojump
+. `brew --prefix autojump`/etc/autojump.zsh
+
+# bundler
+export BUNDLER_EDITOR=subl
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+

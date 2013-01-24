@@ -105,7 +105,8 @@ NeoBundle 'Shougo/neobundle.vim'
   NeoBundle 'Shougo/neocomplcache'
 
   " neocomplcacheのsinpet補完
-  NeoBundle 'Shougo/neocomplcache-snippets-complete'
+  " NeoBundle 'Shougo/neocomplcache-snippets-complete'
+  NeoBundle 'Shougo/neosnippet'
 
   " rubyでrequire先を補完する
   " NeoBundle 'ujihisa/neco-ruby'

@@ -49,10 +49,8 @@ alias g='git'
 alias gi='git'
 
 # nocrrect
-alias cp='nocorrect cp -irp'
 alias refe='nocorrect refe'
 alias java='nocorrect java'
-alias cp='nocorrect cp -irp'
 alias erl='nocorrect erl'
 alias sbcl='nocorrect sbcl'
 alias gosh='nocorrect gosh'
@@ -87,3 +85,4 @@ alias ex='extract'
 
 alias ev='vi ~/dotfiles/.vimrc*'
 
+alias jenkins='java -jar /usr/local/opt/jenkins/libexec/jenkins.war'

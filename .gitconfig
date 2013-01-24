@@ -12,6 +12,7 @@
 [core]
   excludesfile = ~/.gitignore   # globalな.gitignoreの指定
   autocrlf = input              # CRLFを自動変換
+  safecrlf = true               # 改行コード混在の場合は変換しない
   editor = vim
   quotepath = false
 [merge]

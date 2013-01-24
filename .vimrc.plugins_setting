@@ -190,12 +190,8 @@ let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
 "------------------------------------
 " open-blowser.vim
 "------------------------------------
-
-" カーソル下のURLをブラウザで開く
-nmap <Leader>fu <Plug>(openbrowser-open)
-vmap <Leader>fu <Plug>(openbrowser-open)
-" カーソル下のキーワードをググる
-nnoremap <Leader>fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+" カーソルの下にURLがあれば開く、なければカーソル下のキーワードで検索
+nmap <Leader>w <Plug>(openbrowser-smart-search)
 
 "------------------------------------
 " operator-camelize.vim
@@ -211,12 +207,12 @@ map <Leader>U <Plug>(operator-decamelize)
 map R <Plug>(operator-replace)
 
 "------------------------------------
-" sumartword.vim
+" smartword.vim
 "------------------------------------
-noremap ,w  w
-noremap ,b  b
-noremap ,e  e
-noremap ,ge  ge
+" noremap ,w  w
+" noremap ,b  b
+" noremap ,e  e
+" noremap ,ge  ge
 
 map W  <Plug>(smartword-w)
 map B  <Plug>(smartword-b)
@@ -343,7 +339,46 @@ cnoremap UO Unite outline<Enter>
 "------------------------------------
 " quickrun.vim
 "------------------------------------
-let g:quickrun_config={'*': {'split': ''}}
+" for RSpec TDD
+" ref. http://qiita.com/items/69035c454de416849b8a
+
+" quickrunの出力結果にAnsiEscを実行して色付けする
+" autocmd FileType quickrun AnsiEsc
+
+let g:quickrun_config = {}
+let g:quickrun_config = {'*': {'split': ''}}
+" quickrunの実行モジュールをvimprocに設定する
+let g:quickrun_config._ = {'runner' : 'vimproc'}
+
+" rspecを実行するための設定を定義する
+" %cはcommandに設定した値に置換される
+" %oはcmdoptに設定した値に置換される
+" %sはソースファイル名に置換される
+let g:quickrun_config['rspec/bundle'] = {
+  \ 'type': 'rspec/bundle',
+  \ 'command': 'rspec',
+  \ 'outputter': 'buffer',
+  \ 'exec': 'bundle exec %c %o --color --drb --tty %s'
+  \}
+let g:quickrun_config['rspec/normal'] = {
+  \ 'type': 'rspec/normal',
+  \ 'command': 'rspec',
+  \ 'outputter': 'buffer',
+  \ 'exec': '%c %o --color --drb --tty %s'
+  \}
+
+" :QuickRunで実行されるコマンドをrspec用の定義に設定する
+" <Leader>lrをタイプした時に、:QuickRun -cmdopt "-l (カーソル行)"を実行するキーマップを定義する ← これがポイント
+function! RSpecQuickrun()
+  let g:quickrun_config['type'] = 'rspec/bundle'
+  nnoremap <expr><silent> <Leader>lr "<Esc>:QuickRun -cmdopt \"-l " . line(".") . "\"<CR>"
+
+  " Quick JUnitのようにCommand-0でテストを実行する
+  " nnoremap <expr><silent> <D-0> "<Esc>:QuickRun -cmdopt \"-l " . line(".") . "\"<CR>"
+endfunction
+
+" ファイル名が_spec.rbで終わるファイルを読み込んだ時に上記の設定を自動で読み込む
+autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 
 "------------------------------------
 " Pydiction
