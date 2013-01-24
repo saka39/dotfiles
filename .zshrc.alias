@@ -87,3 +87,4 @@ alias ex='extract'
 
 alias ev='vi ~/dotfiles/.vimrc*'
 
+alias jenkins='java -jar /usr/local/opt/jenkins/libexec/jenkins.war'

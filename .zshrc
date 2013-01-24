@@ -44,6 +44,7 @@ WHITE="%{${fg[white]}%}"
 # Prompt
 #
 setopt prompt_subst
+setopt transient_rprompt
 #PROMPT='${fg[white]}%(5~,%-2~/.../%2~,%~)% ${RED} $ ${RESET}'
 PROMPT='${RESET}${GREEN}${WINDOW:+"[$WINDOW]"}${RESET}%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}'
 RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
@@ -374,8 +375,8 @@ esac
 case "${OSTYPE}" in
 # MacOSX
 darwin*)
-    export PATH=$PATH:/opt/local/bin:/opt/local/sbin/
-    export PATH=$PATH:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/
+    export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+    export PATH=$PATH:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources
     ;;
 freebsd*)
     case ${UID} in
@@ -448,8 +449,8 @@ esac
 
 export EDITOR=vi
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
-export PATH=$PATH:$HOME/dotfiles/bin
-export PATH=$PATH:/sbin:/usr/local/bin
+export PATH=$PATH:$HOME/dotfiles/bin:$HOME/bin
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
 
 expand-to-home-or-insert () {
@@ -560,7 +561,9 @@ linux*)
     ;;
 esac
 
-
 ## local固有設定
 #
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
